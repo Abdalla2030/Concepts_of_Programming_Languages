@@ -16,11 +16,17 @@ struct Shape
 struct ShapeVtable
 {
     double (*GetArea)(Shape*);
+     void (*PrintInfo)(Shape*);
 };
 
 double GetArea(Shape* shape)
 {
-    shape->vtable->GetArea(shape);
+    return shape->vtable->GetArea(shape);
+}
+
+void PrintInfo(Shape* shape)
+{
+    shape->vtable->PrintInfo(shape);
 }
 ///////////////////////////////////////
 // Derived Class ( Circle ) - Concrete
@@ -35,8 +41,15 @@ double GetAreaCircle(Circle* circle)
     return  PI* circle->radius * circle->radius;
 }
 
+void PrintInfoCircle(Circle* circle)
+{
+    cout<<"Radius of Circle = "<<circle->radius <<endl;
+    cout<<endl;
+}
+
 ShapeVtable circle_vtable = {
-        (double(*)(Shape*)) GetAreaCircle
+        (double(*)(Shape*)) GetAreaCircle,
+        (void(*)(Shape*)) PrintInfoCircle
 };
 
 void CircleInitialize(Circle* circle,double radius)
@@ -53,13 +66,20 @@ struct Rectangle
     double width;
 };
 
-double GetArea_Rectangle(Rectangle* rectangle)
+double GetAreaRectangle(Rectangle* rectangle)
 {
     return rectangle->height * rectangle->width;
 }
 
+void PrintInfoRectangle(Rectangle* rectangle)
+{
+    cout<<"Width and Height of Rectangle = "<<rectangle->width<<" "<<rectangle->height<<endl;
+    cout<<endl;
+}
+
 ShapeVtable rectangle_vtable = {
-        (double(*)(Shape*)) GetArea_Rectangle
+        (double(*)(Shape*)) GetAreaRectangle,
+        (void(*)(Shape*)) PrintInfoRectangle
 };
 
 void RectangleInitialize(Rectangle* rectangle,double width,double  height)
@@ -77,14 +97,21 @@ struct Ellipse
     double b;  // radius 2
 };
 
-double GetArea_Ellipse(Ellipse* ellipse)
+double GetAreaEllipse(Ellipse* ellipse)
 {
 
     return ellipse->a*ellipse->b*PI;
 }
 
+void PrintInfoEllipse(Ellipse* ellipse)
+{
+    cout<<"2 Radius of Ellipse = "<<ellipse->a<<" "<<ellipse->b<<endl;
+    cout<<endl;
+}
+
 ShapeVtable ellipse_vtable = {
-        (double(*)(Shape*)) GetArea_Ellipse
+        (double(*)(Shape*)) GetAreaEllipse,
+        (void(*)(Shape*))PrintInfoEllipse
 };
 
 void EllipseInitialize(Ellipse* ellipse,double a,double b)
@@ -113,7 +140,7 @@ int main()
 
     double total_area=0;
 
-    int i;
+   int i;
     for(i=0;i<3;i++)
     {
         double d=GetArea(shapes[i]);
@@ -122,7 +149,6 @@ int main()
     }
 
     cout<<total_area<<endl; // check if the value is correct
-
 
     return 0;
 }
