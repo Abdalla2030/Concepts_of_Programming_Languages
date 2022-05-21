@@ -22,7 +22,7 @@ int F(int n) {
  }
 ------------------------------------------
 * Write a C++ code that does the following:
-* You are not allowed to use any built-in functions except: <cstdlib>, <cstdio>, <cstring>, <iostream>, <stack>.
+* You are not allowed to use any built-in functions except: cstdlib, cstdio, cstring, iostream, stack.
 * You are not allowed to use string class, vector, or anything from STL libraries except <stack>.
 * Convert the above function to a non-recursive function using the simulating recursion method using stack in Lecture04_Subprograms.
 * Simulate recursion as specified in our lecture, without using any recursive call directly or indirectly.
