@@ -6,6 +6,8 @@ Assignment 1  ( Convert Recursion to Iterative )
 
 Consider the following recursive function:
 ------------------------------------------
+## Example 
+```
 int F(int n) {
 
     if(n<=1) return 1;
@@ -20,6 +22,7 @@ int F(int n) {
     
     return a+b+d;   
  }
+ ```
 ------------------------------------------
 * Write a C++ code that does the following:
 * You are not allowed to use any built-in functions except: cstdlib, cstdio, cstring, iostream, stack.
@@ -39,44 +42,27 @@ Assignment 2  ( Simpulating Polymorphism )
 * Implement base struct Shape and derived struct Circle, Rectangle and Ellipse simulating polymorphism without using the virtual keyword. Do not use the C++ inheritance or polymorphism mechanisms but simulate them as described in our lecture Lecture05_GenericProg. You are allowed to use some lecture code. Your code must be general.
 * Write standard C++, such that the following main() works. You are not allowed to modify the main().
 * Half the mark is dedicatd to comments explaining the code before each code line, test cases, and following the CodingStyle.pdf file.
-int main()
-{
-    Circle circle;
-    
-    CircleInitialize(&circle, 10); // circle with radius 10
-    
-    Rectangle rectangle;
-    
-    RectangleInitialize(&rectangle, 3, 5); // rectangle with width 3 and height 5
-    
-    Ellipse ellipse;
-    
-    EllipseInitialize(&ellipse, 10, 12); // ellipse with radius 10, 12
-    
-    Shape* shapes[3];
-    
-    shapes[0]=(Shape*)&circle ;
-    
-    shapes[1]=(Shape*)&rectangle ;
-    
-    shapes[2]=(Shape*)&ellipse ;
-    
-    double total_area=0;
-    
-    int i;
-    
-    for(i=0;i<3;i++) {
-                     
-        double d=GetArea(shapes[i]);
-                     
-        total_area+=d;
-                     
+## Example 
+```
+int main(){
+    Circle circle;   
+    CircleInitialize(&circle, 10); // circle with radius 10  
+    Rectangle rectangle;    
+    RectangleInitialize(&rectangle, 3, 5); // rectangle with width 3 and height 5   
+    Ellipse ellipse;    
+    EllipseInitialize(&ellipse, 10, 12); // ellipse with radius 10, 12    
+    Shape* shapes[3];    
+    shapes[0]=(Shape*)&circle ;    
+    shapes[1]=(Shape*)&rectangle ;    
+    shapes[2]=(Shape*)&ellipse ;    
+    double total_area=0;   
+    int i;   
+    for(i=0;i<3;i++) {                    
+        double d=GetArea(shapes[i]);                   
+        total_area+=d;                     
         PrintInfo(shapes[i]); // prints (cout) the radius if circle, width and height if rectangle, ... etc 
-   }
-    
-    cout<<total_area<<endl; // check if the value is correct
-                           
-    return 0;
-                           
+   }   
+    cout<<total_area<<endl; // check if the value is correct                          
+    return 0;                           
 }
-
+```
