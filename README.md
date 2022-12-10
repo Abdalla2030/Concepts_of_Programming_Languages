@@ -2,7 +2,7 @@
 Assignments of Concepts of Programming Languages Course ( CS322 ) 
 
 ***************************************************************************************************
-Assignment 1  ( Convert Recursion to Iterative )
+### Assignment 1  ( Convert Recursion to Iterative )
 
 Consider the following recursive function:
 ------------------------------------------
@@ -34,7 +34,7 @@ int F(int n) {
 * Write at least 20 test case statements (F(1),F(2),..,F(20)) that make sure that your output matches the original function output.
 * Half the mark is dedicatd to comments explaining the code before each code line, test cases, and following the CodingStyle.pdf file.
 ***************************************************************************************************
-Assignment 2  ( Simpulating Polymorphism )
+### Assignment 2  ( Simpulating Polymorphism )
 
 * Write a C++ code that does the following:
 * You are not allowed to use any built-in functions except: <cmath>, <cstdlib>, <cstdio>, <cstring>, <iostream>.
